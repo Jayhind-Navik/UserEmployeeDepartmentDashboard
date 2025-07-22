@@ -1,0 +1,67 @@
+﻿@*@model WorkingWithMultipleTable_Prod.Models.ViewModel.EmployeeDepartmentListViewModel*@
+@model IEnumerable<WorkingWithMultipleTable_Prod.Models.ViewModel.EmployeeDepartmentSummaryViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_LayoutDashboard.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-12">
+            @* <div>
+            <h1 class="text-info text-center p-1 border border-dark">Employees List</h1>
+            </div>*@
+            <div class="row">
+                <div class="col-6">
+                    <div>
+                        <a class="btn btn-sm btn-primary m-2 p-2" asp-action="AddEmployee" asp-controller="Employee">Add Employee</a>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <input type="text" placeholder="Search here..." id="txtSearch" class="form-control m-1 float-end" style="width:50%;" />
+                </div>
+            </div>
+            <table class="table table-bordered text-center">
+                <thead class="bg-dark text-light">
+                    <tr>
+                        <th>EmployeeId</th>
+                        <th>Name</th>
+                        @*<th>First Name</th>
+                        <th>Middle Name</th>
+                        <th>Last Name</th>*@
+                        <th>Gender</th>
+                        <th>Department Name</th>
+                        <th>Department Code</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var d in Model)
+                    {
+                        <tr>
+                            <td>@d.EmployeeId</td>
+                            <td>@d.FullName</td>
+                            @*<td>@d.FirstName</td>
+                        <td>@d.MiddleName</td>
+                        <td>@d.LastName</td>*@
+                            <td>@d.Gender</td>
+                            <td>@d.DepartmentName</td>
+                            <td>@d.DepartmentCode</td>
+                            <td>
+                                <a class="btn btn-sm btn-primary" asp-action="AddEmployee" asp-controller="Employee" asp-route-id="@d.EmployeeId">Edit</a>
+                                <a class="btn btn-sm btn-danger" asp-action="DeleteEmployee" onclick="return confirm('Are you sure, You want to delete this record?')" asp-controller="Employee" asp-route-id="@d.EmployeeId">Delete</a>
+                                <a class="btn btn-sm btn-warning" asp-action="DetailsEmployee" asp-controller="Employee" asp-route-id="@d.EmployeeId">Details</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <a class="btn btn-sm btn-warning float-end m-1 p-2" asp-action="Index" asp-controller="Dashboard">Back to Dashboard</a>
+        </div>
+
+    </div>
+</div>
+@section scripts{
+   <script src="/js/CustomJs.js"></script>
+}

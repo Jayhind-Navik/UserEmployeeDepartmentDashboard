@@ -1,0 +1,14 @@
+# Auto detect text files and normalize line endings
+* text=auto
+
+# Handle C# files
+*.cs diff=csharp
+
+# Treat JSON files as text
+*.json text
+
+# Make sure images are not modified
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary

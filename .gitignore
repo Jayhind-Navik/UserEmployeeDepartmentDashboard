@@ -1,0 +1,30 @@
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# VS Code folders
+.vscode/
+
+# Visual Studio
+.vs/
+
+# Logs
+*.log
+
+# Configuration
+appsettings.Development.json
+appsettings.Production.json
+appsettings.*.json
+
+# Others
+*.db
+*.DS_Store
+*.pdb
+*.cache
